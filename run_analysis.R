@@ -6,8 +6,10 @@ run_analysis <- function() {
     train<-loadData("train")
     ##load test data
     test<-loadData("test")
-    ##Add train and test to one data frame
-    rbind(train,test)
+    ##Add train and test to one data frame. Save to text file and return data.
+    DataClean<-rbind(train,test)
+    write.table(DataClean, "CleanData.txt", row.name=FALSE)
+    DataClean
 }
 
 loadData <- function(ToT="train") {
